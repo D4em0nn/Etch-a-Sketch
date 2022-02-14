@@ -1,0 +1,23 @@
+.title {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+}
+
+.grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: repeat(16, 10px);
+    grid-template-rows: repeat(16, 10px);
+}
+
+.item {
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+}
