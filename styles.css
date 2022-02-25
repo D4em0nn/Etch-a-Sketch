@@ -3,8 +3,9 @@
     padding: 20px;
     justify-content: center;
     align-items: center;
-    font-size: 30px;
+    font-size: 50px;
     padding-top: 30px;
+    margin-bottom: 30px;
 }
 
 body {
@@ -21,19 +22,19 @@ body {
 .btn {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 25px;
     align-items: center;
     justify-content: center;
 }
 
 .content {
     display: flex;
-    gap: 50px;
+    gap: 100px;
 }
 
 .grid {
-    width: 300px;
-    height: 300px;
+    width: 600px;
+    height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,8 +54,9 @@ body {
 button {
     background-color: black;
     color: rgb(167, 40, 40);
-    height: 30px;
-    width: 80px;
+    height: 50px;
+    width: 120px;
+    font-size: 20px;
     border: none;
 }
 
