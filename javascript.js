@@ -1,19 +1,17 @@
 const grid = document.querySelector('.grid');
+const set = document.querySelector('.set');
+const colour = document.querySelector('.colour')
 
-/*let test = document.createElement('div');
-test.textContent = 'hello';
-grid.appendChild(test);*/
-
-for(let i = 0; i < 256; i++)
+for(let i = 0; i < 16*16; i++)
 {
     let newDiv = document.createElement('div');
     newDiv.id = 'd'+ (i+1);
     newDiv.className = 'item';
-    newDiv.style.length = '10px';
-    newDiv.style.width = '10px';
-    //newDiv.style.margin = '5px';
     grid.appendChild(newDiv);
 }
+
+grid.style.gridTemplateColumns = 'repeat(16, 1fr)';
+grid.style.gridTemplateRows = 'repeat(16, 1fr)'
 
 const grids = document.querySelectorAll('.item');
 
@@ -22,3 +20,66 @@ grids.forEach((grid) => {
         event.target.style.backgroundColor = 'pink';
     })
 })
+
+let numOfGrids;
+set.addEventListener('click', setup);
+
+function setup()
+{
+    numOfGrids = prompt("Please enter number of grids");
+    if(numOfGrids == null)
+    {
+        return;
+    }
+    grid.textContent = '';
+    for(let i = 0; i < numOfGrids*numOfGrids; i++)
+    {
+        let newDiv = document.createElement('div');
+        newDiv.id = 'd'+ (i+1);
+        newDiv.className = 'item';
+        grid.appendChild(newDiv);
+    }
+
+    console.log(numOfGrids);
+
+    grid.style.gridTemplateColumns = `repeat(${numOfGrids}, 1fr)`;
+    grid.style.gridTemplateRows = `repeat(${numOfGrids}, 1fr)`;
+
+    const grids = document.querySelectorAll('.item');
+
+    grids.forEach((grid) => {
+        grid.addEventListener('mouseover', (event) => {
+            event.target.style.backgroundColor = 'pink';
+        })
+    })
+
+    colour.addEventListener('click', csetup);
+
+function csetup()
+{
+    grids.forEach((grid) => {
+        grid.addEventListener('mouseover', (event) => {
+            event.target.style.backgroundColor = random_bg_color();
+        })
+    })
+}
+}
+
+colour.addEventListener('click', csetup);
+
+function csetup()
+{
+    grids.forEach((grid) => {
+        grid.addEventListener('mouseover', (event) => {
+            event.target.style.backgroundColor = random_bg_color();
+        })
+    })
+}
+
+function random_bg_color() {
+    var x = Math.floor(Math.random() * 256);
+    var y = Math.floor(Math.random() * 256);
+    var z = Math.floor(Math.random() * 256);
+    var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+    return bgColor;
+    }
