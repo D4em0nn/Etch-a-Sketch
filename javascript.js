@@ -1,6 +1,7 @@
 const grid = document.querySelector('.grid');
 const set = document.querySelector('.set');
-const colour = document.querySelector('.colour')
+const colour = document.querySelector('.colour');
+const reset = document.querySelector('.reset');
 
 for(let i = 0; i < 16*16; i++)
 {
@@ -63,6 +64,12 @@ function csetup()
         })
     })
 }
+
+reset.addEventListener('click', () => {
+    grids.forEach((grid) => {
+        grid.style.backgroundColor = 'black';
+    });
+});
 }
 
 colour.addEventListener('click', csetup);
@@ -72,9 +79,15 @@ function csetup()
     grids.forEach((grid) => {
         grid.addEventListener('mouseover', (event) => {
             event.target.style.backgroundColor = random_bg_color();
-        })
-    })
+        });
+    });
 }
+
+reset.addEventListener('click', () => {
+    grids.forEach((grid) => {
+        grid.style.backgroundColor = 'black';
+    });
+});
 
 function random_bg_color() {
     var x = Math.floor(Math.random() * 256);

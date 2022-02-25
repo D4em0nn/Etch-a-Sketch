@@ -18,14 +18,10 @@ body {
     text-decoration: underline;
 }
 
-.set {
-    margin: 30px;
-}
-
 .btn {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 15px;
     align-items: center;
     justify-content: center;
 }
